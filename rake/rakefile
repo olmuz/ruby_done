@@ -1,0 +1,54 @@
+task default: %w[hello]
+ 
+task :hello do
+  puts "Hello world!"
+end
+
+
+# cmd: rake
+# => Hello world!
+
+task :ssh_into_server do
+  puts "ssh into server"
+end
+ 
+task :move_to_directory do
+  puts "cd to the correct directory"
+end
+ 
+task :pull_code do
+  puts "pulling code from Github"
+end
+ 
+task :get_dependencies do
+  puts "getting the dependencies"
+end
+ 
+task :migrate_the_database do
+  puts "migrating the database"
+end
+ 
+task :set_file_permissions do
+  puts "setting the file permissions"
+end
+ 
+task :symlink_the_new_version do
+  puts "symlinking the new version"
+end
+
+
+
+namespace :ship_it do # aka module. Access ship-it:deploy
+	desc "SSH into the server." # description of the task
+    task :ssh_into_server do
+      puts "ssh into server"
+    end
+ 
+task :deploy => [:ssh_into_server, :move_to_directory, :pull_code, :get_dependencies, :migrate_the_database, :set_file_permissions, :symlink_the_new_version] do
+  puts "deploying the website!"
+end
+    # The rest of the tasks
+end
+
+# cmd: rake ship_it:deploy
+# =>
