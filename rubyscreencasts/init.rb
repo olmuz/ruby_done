@@ -35,5 +35,5 @@ item2 = RealItem.new({:name => "Victor", :weight => 100})
 
 
 
-puts item1.tax
-
+puts item1.price
+puts item1.real_price

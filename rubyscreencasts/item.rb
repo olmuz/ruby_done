@@ -1,22 +1,22 @@
 class Item
 
-  @@discount = 0.1
+  @@discount = 0.05
 
   def self.discount
     if Time.now.month == 9
-      @@discount += 0.2
+      @@discount += 0.1
     else
       @@discount
     end
   end
 
   def initialize(options={})
-    @price = options[:price]
+    @real_price = options[:price]
     @name = options[:name]
   end
 
-  attr_reader :price, :name
-  attr_writer :price
+  attr_reader :real_price, :name
+  attr_writer :real_price
   
   def info
    yield(price)
@@ -24,21 +24,21 @@ class Item
   end
 
   def price
-    @price - @price*self.class.discount + tax  # self это обьект(экземпляр класса(инстанс))
+    @real_price - @real_price*self.class.discount + tax  # self это обьект(экземпляр класса(инстанс))
   end
 
   private
-  
+
     def tax
       type_tax = if self.class == VirtualItem
         1
       else
         2
       end
-      cost_tax = if @price > 5
-        @price*0.2
+      cost_tax = if @real_price > 5
+        @real_price*0.2
       else
-        @price*0.1
+        @real_price*0.1
       end
       cost_tax + type_tax
     end
