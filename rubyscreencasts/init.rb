@@ -1,7 +1,9 @@
+require_relative "item_container"
 require_relative "cart"
 require_relative "item"
-require_relative "real_item"
+require_relative "order"
 require_relative "virtual_item"
+require_relative "real_item"
 
 =begin
 cart = Cart.new
@@ -30,10 +32,22 @@ p item1.respond_to?(:weight) # узнать отвечает ли обьект i
 p item2.respond_to?(:weight)
 
 =end
-item1 = VirtualItem.new({:name => "Victor", :price => 10, :weight => 100})
-item2 = RealItem.new({:name => "Victor", :weight => 100})
+item1 = VirtualItem.new({:name => "Car", :price => 10, :weight => 100})
+item2 = RealItem.new({:name => "Car", :weight => 100})
+item3 = RealItem.new({:name => "Dishwasher", :weight => 100})
 
+#puts item1.price
+#puts item1.real_price
 
+cart = Cart.new
+cart.add_item item1
+cart.add_item item2
+cart.remove_item
+puts cart.items.size
 
-puts item1.price
-puts item1.real_price
+order = Order.new
+order.add_item item1
+order.add_item item2
+order.add_item item3
+order.remove_item
+puts order.items.size
