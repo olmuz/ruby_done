@@ -24,7 +24,8 @@ class Item
   end
 
   def price
-    @real_price - @real_price*self.class.discount + tax  # self это обьект(экземпляр класса(инстанс))
+  @real_price - @real_price*self.class.discount + tax if real_price # self это обьект(экземпляр класса(инстанс))
+
   end
 
   private

@@ -33,8 +33,8 @@ p item2.respond_to?(:weight)
 
 =end
 item1 = VirtualItem.new({:name => "Car", :price => 10, :weight => 100})
-item2 = RealItem.new({:name => "Car", :weight => 100})
-item3 = RealItem.new({:name => "Dishwasher", :weight => 100})
+item2 = RealItem.new({:name => "Car", :weight => 100, :price => 10,})
+item3 = RealItem.new({:name => "Dishwasher", :weight => 100, :price => 10})
 
 #puts item1.price
 #puts item1.real_price
@@ -51,3 +51,5 @@ order.add_item item2
 order.add_item item3
 order.remove_item
 puts order.items.size
+
+puts order.count_valid_items
