@@ -56,6 +56,6 @@ cart.add_item item3
 puts cart.items.size
 =end
 @items = []
-@items << VirtualItem.new({:name => "car", :price => 101, :weight => 100})
-@items << RealItem.new({:name => "kettle", :weight => 101, :price => 101,})
-@items << RealItem.new({:name => "dishwasher", :weight => 100, :price => 101})
+@items << RealItem.new({:name => "car", :price => 101, :weight => 100})
+@items << RealItem.new({:name => "kettle", :price => 101, :weight => 101})
+@items << RealItem.new({:name => "dishwasher", :price => 101, :weight => 100})
