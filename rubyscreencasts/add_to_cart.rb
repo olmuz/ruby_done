@@ -10,5 +10,5 @@ cart.read_from_file
 begin
   cart.save_to_file
 rescue Cart::ItemNotSupported
-  puts "One of your items is virtual. Cart doesen't support saving virtual items yet"
+  puts "One of your items you're trying to save is not supported by the Cart. Unsopported item classes are: #{Cart::UNSUPPORTED_ITEM}"
 end

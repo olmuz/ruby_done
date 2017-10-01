@@ -1,11 +1,23 @@
+require_relative "string"
 require_relative "item_container"
-require_relative "cart"
 require_relative "item"
-require_relative "order"
 require_relative "virtual_item"
 require_relative "real_item"
-require_relative "string"
+require_relative "antique_item"
+require_relative "cart"
+require_relative "order"
 
+@items = []
+@items << VirtualItem.new({:weight => 101, :price => 101, :name => "car"})
+@items << RealItem.new({:weight => 101, :price => 101, :name => "kettle"})
+@items << RealItem.new({:weight => 100, :price => 101, :name => "dishwasher"})
+
+
+cart = Cart.new("roman")
+cart.add_item RealItem.new({:weight => 101, :price => 101, :name => "car"})
+cart.add_item RealItem.new({:weight => 101, :price => 150, :name => "car"})
+cart.add_item RealItem.new({:weight => 101, :price => 120, :name => "kettle"})
+p cart.all_cars
 =begin
 cart = Cart.new
 cart.add_item(Item.new)
@@ -56,7 +68,3 @@ cart.add_item item3
 
 puts cart.items.size
 =end
-@items = []
-@items << VirtualItem.new({:name => "car", :price => 101, :weight => 100})
-@items << RealItem.new({:name => "kettle", :price => 101, :weight => 101})
-@items << RealItem.new({:name => "dishwasher", :price => 101, :weight => 100})
