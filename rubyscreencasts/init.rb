@@ -4,6 +4,7 @@ require_relative "item"
 require_relative "order"
 require_relative "virtual_item"
 require_relative "real_item"
+require_relative "string"
 
 =begin
 cart = Cart.new
