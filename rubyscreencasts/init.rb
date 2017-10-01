@@ -17,7 +17,11 @@ cart = Cart.new("roman")
 cart.add_item RealItem.new({:weight => 101, :price => 101, :name => "car"})
 cart.add_item RealItem.new({:weight => 101, :price => 150, :name => "car"})
 cart.add_item RealItem.new({:weight => 101, :price => 120, :name => "kettle"})
-p cart.all_cars
+
+puts cart.kind_of?(Cart) # kind_of поределяет является ли cart обьектом(экземпляром) класса Cart
+puts @items[0].respond_to?(:info) # проверяет отвечает ли экземпляр на метод
+puts @items[0].send(:tax) #вызыввет на обьекте метод, название которого мы передаем в виде символа (умеет вызывать даже приватные методы)
+
 =begin
 cart = Cart.new
 cart.add_item(Item.new)
