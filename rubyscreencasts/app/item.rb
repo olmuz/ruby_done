@@ -16,10 +16,14 @@ class Item
   end
 
   attr_reader :real_price, :name
-  attr_writer :real_price
+  #attr_writer :real_price
 
+  def price=(value)
+    @real_price =value
+  end
+  
   def to_s
-    "#{self.name}:#{self.price}:#{self.weight}"
+    "#{self.name}:#{self.price}"
   end
   
   def info

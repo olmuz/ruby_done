@@ -11,6 +11,10 @@ class RealItem < Item
     super
   end
 
+  def to_s
+    super + ":#{self.weight}"
+  end
+
   attr_reader :weight
 
 end

@@ -1,6 +1,15 @@
-require_relative "store_application"
+require_relative "app/store_application"
 
-StoreApplication.new 
+StoreApplication.config do |app|
+  
+  app.name = "My Store"
+  app.enviroment = :production
+  app.admin do |admin|
+    admin.email = "asd@mail.com"
+    admin.login = "admin"
+    admin.send_info_emails_on = :mondays
+  end
+end
 
 
 @items = []

@@ -2,8 +2,9 @@ class StoreApplication
 
   class << self # внутри мы можем определять все методы класса без использования ключевого слова self
     
-    def new # переопределение метода класса new
+    def config # переопределение метода класса new
       unless @instance
+        yield(self)
         puts "loading files..."
         require_relative "string"
         require_relative "item_container"
@@ -19,6 +20,34 @@ class StoreApplication
       # ||= означает что если инстансная переменная пустая то тогда в нее записывается переменная self
     end
 
+    attr_accessor :name, :environment
+
+    def admin(&block)
+      @admin ||=Admin.new(&block)
+    end
+
   end
+
+  class Admin
+
+    class << self
+          
+      def new
+        unless @instance
+          yield(self)
+        @instance||=self
+      end
+
+      attr_accessor :email, :login
+
+      def send_info_emails_on(day)
+        @send_info_emails_on = day
+      end
+
+    end 
+    
+  end
+  
+end
 
 end
