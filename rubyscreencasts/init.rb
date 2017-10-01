@@ -46,11 +46,7 @@ order.remove_item
 puts order.items.size
 
 puts order.count_valid_items
-=end
 
-item1 = VirtualItem.new({:name => "Car", :price => 101, :weight => 100})
-item2 = RealItem.new({:name => "Car", :weight => 101, :price => 101,})
-item3 = RealItem.new({:name => "Dishwasher", :weight => 10, :price => 10})
 
 cart = Cart.new
 cart.add_item item1
@@ -58,3 +54,8 @@ cart.add_item item2
 cart.add_item item3
 
 puts cart.items.size
+=end
+@items = []
+@items << VirtualItem.new({:name => "car", :price => 101, :weight => 100})
+@items << RealItem.new({:name => "kettle", :weight => 101, :price => 101,})
+@items << RealItem.new({:name => "dishwasher", :weight => 100, :price => 101})
